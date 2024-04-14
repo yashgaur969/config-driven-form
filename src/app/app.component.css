@@ -1,0 +1,10 @@
+.app {
+  font-family: sans-serif;
+  padding: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

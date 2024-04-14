@@ -1,0 +1,10 @@
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmitForm()"> -->
+<div *ngFor="let schema of schemas">
+  <app-form-field
+    [field]="schema"
+    [value]="formData[schema.name]"
+    (onChange)="onHandleChange($event)"
+  ></app-form-field>
+</div>
+<button type="submit" (click)="onFormSubmit()">Submit</button>
+<!-- </form> -->

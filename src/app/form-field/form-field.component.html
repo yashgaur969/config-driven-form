@@ -1,0 +1,56 @@
+<div [ngSwitch]="field.component">
+  <div *ngSwitchCase="'TEXT_FIELD'" class="inputContainer">
+    <label [htmlFor]="field.name"
+      >{{ field.label }} {{ field.isRequired ? "*" : "" }}</label
+    >
+    <input
+      [type]="field.type"
+      [name]="field.name"
+      (input)="onValueChange($event)"
+    />
+  </div>
+  <div *ngSwitchCase="'CHECKBOX'" class="inputContainer">
+    <input
+      type="checkbox"
+      [name]="field.name"
+      (change)="onCheckboxChange($event)"
+    />
+    <label [htmlFor]="field.name"
+      >{{ field.label }} {{ field.isRequired ? "*" : "" }}</label
+    >
+  </div>
+  <div *ngSwitchCase="'RADIO_BUTTON'" class="inputContainer">
+    <label>{{ field.name }} {{ field.isRequired ? "*" : "" }}</label>
+    <div *ngFor="let option of field.options" class="inputContainer">
+      <input
+        type="radio"
+        [name]="field.name"
+        (change)="onValueChange($event)"
+      /><label htmlFor="option">{{ option }}</label>
+    </div>
+  </div>
+  <div *ngSwitchCase="'DATE_PICKER'" class="inputContainer">
+    <label [htmlFor]="field.name"
+      >{{ field.label }} {{ field.isRequired ? "*" : "" }}</label
+    >
+    <input
+      type="date"
+      [name]="field.name"
+      (change)="onValueChange($event)"
+      [placeholder]="'MM/DD/YYYY'"
+    />
+  </div>
+  <div *ngSwitchCase="'SLIDER'" class="inputContainer">
+    <label [htmlFor]="field.name"
+      >{{ field.label }} {{ field.isRequired ? "*" : "" }}</label
+    >
+    <input
+      type="range"
+      [name]="field.name"
+      [id]="field.name"
+      [min]="field.minValue"
+      [max]="field.maxValue"
+      (change)="onValueChange($event)"
+    />
+  </div>
+</div>

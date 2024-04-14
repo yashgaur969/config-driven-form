@@ -1,0 +1,9 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.label {
+  font-weight: 600;
+}
